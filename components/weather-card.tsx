@@ -6,6 +6,12 @@ import { useTheme } from "next-themes";
 import { Hash } from "lucide-react";
 import { CalendarDays } from "lucide-react";
 import { MapPin } from "lucide-react";
+import { motion } from "framer-motion";
+
+const textVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+};
 
 export function WeatherCard() {
   const [location, setLocation] = useState("Loading...");
@@ -68,10 +74,21 @@ export function WeatherCard() {
   };
 
   return (
-    <div className="relative rounded-xl bg-white p-6 shadow-lg font-mono dark:bg-zinc-900 h-[250px] flex flex-col justify-between">
-      <div className="flex items-center justify-between">
+    <motion.div
+      className="relative rounded-xl bg-white p-6 shadow-lg font-mono dark:bg-zinc-900 h-[250px] flex flex-col justify-between"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <motion.div
+        className="flex items-center justify-between"
+        initial="hidden"
+        animate="visible"
+        variants={textVariants}
+        transition={{ duration: 0.5 }}
+      >
         <div className="flex items-center gap-2">
-          <span className="text-sm text-zinc-600 dark:text-zinc-400 flex gap-2 items-center">
+          <span className="text-sm font-mono text-zinc-600 dark:text-zinc-400 flex gap-2 items-center">
             <MapPin size={16} />
             {location}
             <div className="h-1 w-1 bg-green-500 dark:bg-green-500 rounded-full animate-pulse" />
@@ -87,22 +104,40 @@ export function WeatherCard() {
             <Sun className="h-4 w-4" />
           )}
         </button>
-      </div>
+      </motion.div>
 
-      <div className="my-4 flex h-10 w-full gap-[3px] lg:gap-[2.5px] overflow-hidden ">
+      <motion.div
+        className="my-4 flex h-10 w-full gap-[3px] lg:gap-[2.5px] overflow-hidden"
+        initial="hidden"
+        animate="visible"
+        variants={textVariants}
+        transition={{ duration: 0.5 }}
+      >
         {renderTimeSegments()}
-      </div>
+      </motion.div>
 
-      <div className="mb-4 font-mono text-4xl font-bold">
+      <motion.div
+        className="mb-4 font-mono text-4xl font-bold"
+        initial="hidden"
+        animate="visible"
+        variants={textVariants}
+        transition={{ duration: 0.5 }}
+      >
         {hours.toString().padStart(2, "0")}:
         {minutes.toString().padStart(2, "0")}
         <span className="text-sm font-normal text-zinc-400">
           {hours >= 12 ? " PM" : " AM"}
         </span>
-      </div>
+      </motion.div>
 
-      <div className="flex items-center justify-between text-sm text-zinc-600 dark:text-zinc-400 ">
-        <span className="flex items-center gap-2">
+      <motion.div
+        className="flex items-center justify-between text-sm text-zinc-600 dark:text-zinc-400"
+        initial="hidden"
+        animate="visible"
+        variants={textVariants}
+        transition={{ duration: 0.5 }}
+      >
+        <span className="flex items-center gap-2 font-mono">
           <CalendarDays size={16} />
           {date.toLocaleDateString("en-US", {
             weekday: "short",
@@ -110,11 +145,11 @@ export function WeatherCard() {
             day: "numeric",
           })}
         </span>
-        <span className="flex items-center gap-2">
+        <span className="flex items-center gap-2 font-mono">
           <Hash size={16} />
           Week {weekNumber}
         </span>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

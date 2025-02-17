@@ -5,7 +5,6 @@ import { WeatherCard } from "@/components/weather-card";
 import { TimerCard } from "@/components/timer-card";
 import { ProgressCard } from "@/components/progress-card";
 import { Magnetic } from "@/components/magnetic";
-import { Magnet } from "lucide-react";
 
 export default function Home() {
   const [focusedCard, setFocusedCard] = useState<string | null>(null);
@@ -24,6 +23,7 @@ export default function Home() {
         <motion.div
           onMouseEnter={() => handleMouseEnter("weather")}
           onMouseLeave={handleMouseLeave}
+          initial={{ opacity: 0, y: 20 }}
           animate={{
             opacity: focusedCard && focusedCard !== "weather" ? 0.5 : 1,
             filter:
@@ -31,13 +31,14 @@ export default function Home() {
           }}
           transition={{ duration: 0.2 }}
         >
-          <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
+          <Magnetic springOptions={{ bounce: 0 }} intensity={0.1}>
             <WeatherCard />
           </Magnetic>
         </motion.div>
         <motion.div
           onMouseEnter={() => handleMouseEnter("timer")}
           onMouseLeave={handleMouseLeave}
+          initial={{ opacity: 0, y: 20 }}
           animate={{
             opacity: focusedCard && focusedCard !== "timer" ? 0.5 : 1,
             filter:
@@ -45,13 +46,14 @@ export default function Home() {
           }}
           transition={{ duration: 0.2 }}
         >
-          <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
+          <Magnetic springOptions={{ bounce: 0 }} intensity={0.1}>
             <TimerCard />
           </Magnetic>
         </motion.div>
         <motion.div
           onMouseEnter={() => handleMouseEnter("progress")}
           onMouseLeave={handleMouseLeave}
+          initial={{ opacity: 0, y: 20 }}
           animate={{
             opacity: focusedCard && focusedCard !== "progress" ? 0.5 : 1,
             filter:
@@ -59,7 +61,7 @@ export default function Home() {
           }}
           transition={{ duration: 0.2 }}
         >
-          <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
+          <Magnetic springOptions={{ bounce: 0 }} intensity={0.1}>
             <ProgressCard />
           </Magnetic>
         </motion.div>

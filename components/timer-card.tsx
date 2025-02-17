@@ -5,6 +5,12 @@ import { Play, Pause, RotateCcw, Settings } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { TimerSettings } from "./timer-settings";
+import { motion } from "framer-motion";
+
+const textVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+};
 
 export function TimerCard() {
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -61,11 +67,20 @@ export function TimerCard() {
 
   return (
     <>
-      <div
+      <motion.div
         ref={cardRef}
         className="relative rounded-xl bg-white p-6 shadow-lg dark:bg-zinc-900 flex flex-col justify-between h-[250px]"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
       >
-        <div className="flex items-center justify-between">
+        <motion.div
+          className="flex items-center justify-between"
+          initial="hidden"
+          animate="visible"
+          variants={textVariants}
+          transition={{ duration: 0.5 }}
+        >
           <Input
             type="text"
             value={task}
@@ -81,14 +96,26 @@ export function TimerCard() {
           >
             <Settings className="h-4 w-4" />
           </Button>
-        </div>
+        </motion.div>
 
-        <div className="my-4 font-mono text-4xl font-bold pt-16">
+        <motion.div
+          className="my-4 font-mono text-4xl font-bold pt-16"
+          initial="hidden"
+          animate="visible"
+          variants={textVariants}
+          transition={{ duration: 0.5 }}
+        >
           {formatTime(time)}
           <span className="text-sm font-normal text-zinc-400"> Focus</span>
-        </div>
+        </motion.div>
 
-        <div className="flex items-center justify-between ">
+        <motion.div
+          className="flex items-center justify-between"
+          initial="hidden"
+          animate="visible"
+          variants={textVariants}
+          transition={{ duration: 0.5 }}
+        >
           <span className="text-sm text-zinc-600 dark:text-zinc-400 font-mono">
             Just do it
           </span>
@@ -114,8 +141,8 @@ export function TimerCard() {
               <RotateCcw className="h-4 w-4" />
             </Button>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
 
       <TimerSettings
         open={isSettingsOpen}

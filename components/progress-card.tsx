@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 
 export function ProgressCard() {
   const [yearProgress, setYearProgress] = useState(0);
-
+  const [isMouseEntered, setIsMouseEntered] = useState(false);
+  console.log("mouse entered", isMouseEntered);
   useEffect(() => {
     const now = new Date();
     const start = new Date(now.getFullYear(), 0, 1);
@@ -14,6 +15,14 @@ export function ProgressCard() {
       100;
     setYearProgress(Math.round(progress));
   }, []);
+
+  const daysLeft =
+    365 -
+    Math.floor(
+      (new Date().getTime() -
+        new Date(new Date().getFullYear(), 0, 1).getTime()) /
+        (1000 * 60 * 60 * 24)
+    );
 
   return (
     <div className="h-[250px] relative overflow-hidden rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 shadow-lg dark:from-emerald-900/20 dark:to-emerald-800/20">
@@ -41,8 +50,14 @@ export function ProgressCard() {
             />
           </svg>
         </div>
-        <div className="text-black text-sm font-mono ">
-          {yearProgress}% of {new Date().getFullYear()} is done
+        <div
+          className="text-black text-sm font-mono w-48 cursor-default"
+          onMouseEnter={() => setIsMouseEntered(true)}
+          onMouseLeave={() => setIsMouseEntered(false)}
+        >
+          {isMouseEntered
+            ? `${daysLeft} days left`
+            : `${yearProgress}% of ${new Date().getFullYear()} is done`}
         </div>
       </div>
       <div className="absolute inset-0 japan-image bg-cover bg-center bg-gradient-to-tr from-transparent to-black" />
