@@ -64,7 +64,7 @@ export default function Home() {
           </Magnetic>
         </motion.div>
       </div>
-      <div className="absolute bottom-4 left-4 flex items-center gap-2">
+      <div className="fixed bottom-4 ">
         <a
           href="https://github.com/kennethazin/pomo-dashboard"
           target="_blank"
