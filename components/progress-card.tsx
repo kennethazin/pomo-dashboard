@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
 
 export function ProgressCard() {
   const [yearProgress, setYearProgress] = useState(0);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
+
   console.log("mouse entered", isMouseEntered);
   useEffect(() => {
     const now = new Date();
@@ -28,7 +30,10 @@ export function ProgressCard() {
     <div className="h-[250px] relative overflow-hidden rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 shadow-lg dark:from-emerald-900/20 dark:to-emerald-800/20">
       <div className="absolute bottom-0 left-0 p-5 z-10 flex items-center gap-3 text-lg font-medium text-emerald-900 dark:text-emerald-100">
         <div className="relative h-6 w-6 ">
-          <svg className="h-6 w-6" viewBox="0 0 24 24">
+          <svg
+            className="h-6 w-6 hover:scale-125 transition-all ease-in-out "
+            viewBox="0 0 24 24"
+          >
             <circle
               className="stroke-emerald-200 dark:stroke-emerald-700"
               cx="12"
@@ -55,9 +60,20 @@ export function ProgressCard() {
           onMouseEnter={() => setIsMouseEntered(true)}
           onMouseLeave={() => setIsMouseEntered(false)}
         >
-          {isMouseEntered
-            ? `${daysLeft} days left`
-            : `${yearProgress}% of ${new Date().getFullYear()} is done`}
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={isMouseEntered ? "daysLeft" : "yearProgress"}
+              initial={{ opacity: 0, y: 5 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -4 }}
+              transition={{ duration: 0.3 }}
+              className="absolute w-full text-left bottom-0.5 h-10 font-mono "
+            >
+              {isMouseEntered
+                ? `${daysLeft} days left`
+                : `${yearProgress}% of ${new Date().getFullYear()} is done`}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
       <div className="absolute inset-0 japan-image bg-cover bg-center bg-gradient-to-tr from-transparent to-black" />
