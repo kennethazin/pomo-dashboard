@@ -18,7 +18,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-zinc-50 p-4 dark:bg-zinc-950 sm:p-8 flex items-center ">
+    <main className="h-[calc(100vh-30px)] bg-zinc-50 p-4 dark:bg-zinc-950 sm:p-8 flex items-center ">
       <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <motion.div
           onMouseEnter={() => handleMouseEnter("weather")}
@@ -66,13 +66,13 @@ export default function Home() {
           </Magnetic>
         </motion.div>
       </div>
-      <div className="fixed bottom-4 z-50 ">
+      <div className="fixed bottom-4 z-50  ">
         <a
           href="https://github.com/kennethazin/pomo-dashboard"
           target="_blank"
           className="font-mono group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
         >
-          <div className="mr-2 text-sm">Github</div>
+          <div className="mr-2 text-sm ">Github</div>
 
           <svg
             width="15"
