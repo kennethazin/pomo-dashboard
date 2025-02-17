@@ -45,7 +45,7 @@ export function ProgressCard() {
           {yearProgress}% of {new Date().getFullYear()} is done
         </div>
       </div>
-      <div className="absolute inset-0 will-change-auto japan-image bg-cover bg-center bg-gradient-to-tr from-transparen</div>t to-black" />
+      <div className="absolute inset-0 japan-image bg-cover bg-center bg-gradient-to-tr from-transparent to-black" />
     </div>
   );
 }

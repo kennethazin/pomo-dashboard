@@ -128,3 +128,9 @@ body {
   animation: switchImage 300s infinite;
   animation-timing-function: ease-in-out;
 }
+
+@media (max-width: 768px) {
+  .japan-image {
+    background-size: cover;
+  }
+}
