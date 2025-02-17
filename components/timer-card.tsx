@@ -71,7 +71,7 @@ export function TimerCard() {
             value={task}
             onChange={(e) => setTask(e.target.value)}
             placeholder="Add a task"
-            className="border-none bg-transparent  p-0 text-sm outline-none  font-mono"
+            className="border-none bg-transparent  p-0 text-md outline-none  font-mono"
           />
           <Button
             variant="ghost"
