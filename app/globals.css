@@ -92,3 +92,39 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes switchImage {
+  0% {
+    background-image: linear-gradient(to bottom, transparent, white),
+      url("https://xj2sj0c9lj.ufs.sh/f/5AmeWX0hzc3knu7EIFP9nipcqa1hysRZW4zUJNdtHBCerLGE");
+  }
+  16.67% {
+    background-image: linear-gradient(to bottom, transparent, white),
+      url("https://xj2sj0c9lj.ufs.sh/f/5AmeWX0hzc3kNcrVjv8pTbSnvVchqLQ089CaD5F7f2tdoYrH");
+  }
+  33.33% {
+    background-image: linear-gradient(to bottom, transparent, white),
+      url("https://xj2sj0c9lj.ufs.sh/f/5AmeWX0hzc3keGKItCBQqU7rbXTYLgWlpBk6IhmOfnGNdxMj");
+  }
+  50% {
+    background-image: linear-gradient(to bottom, transparent, white),
+      url("https://xj2sj0c9lj.ufs.sh/f/5AmeWX0hzc3kSrJNuPhVXvK9V3JxobD5eFTMHan1hz2mjyP8");
+  }
+  66.67% {
+    background-image: linear-gradient(to bottom, transparent, white),
+      url("https://xj2sj0c9lj.ufs.sh/f/5AmeWX0hzc3kV0XBoZjLHq1U6NO9PYerG8v3bith7KABMg5W");
+  }
+  83.33% {
+    background-image: linear-gradient(to bottom, transparent, white),
+      url("https://xj2sj0c9lj.ufs.sh/f/5AmeWX0hzc3kElPRukgihkOQqWluHE8IcMKFZLzs3fejUmT2");
+  }
+  100% {
+    background-image: linear-gradient(to bottom, transparent, white),
+      url("https://xj2sj0c9lj.ufs.sh/f/5AmeWX0hzc3kaxYWjiOIXEbhpojmx5OuqdC7NDck14QHRV3W");
+  }
+}
+
+.japan-image {
+  animation: switchImage 300s infinite;
+  animation-timing-function: ease-in-out;
+}

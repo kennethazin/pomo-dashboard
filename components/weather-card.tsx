@@ -68,12 +68,13 @@ export function WeatherCard() {
   };
 
   return (
-    <div className="relative rounded-xl bg-white p-6 shadow-lg dark:bg-zinc-900 h-[250px] flex flex-col justify-between">
+    <div className="relative rounded-xl bg-white p-6 shadow-lg font-mono dark:bg-zinc-900 h-[250px] flex flex-col justify-between">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="text-sm text-zinc-600 dark:text-zinc-400 flex gap-2">
+          <span className="text-sm text-zinc-600 dark:text-zinc-400 flex gap-2 items-center">
             <MapPin size={16} />
             {location}
+            <div className="h-1 w-1 bg-green-500 dark:bg-green-500 rounded-full animate-pulse" />
           </span>
         </div>
         <button

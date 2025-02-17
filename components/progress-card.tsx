@@ -17,7 +17,7 @@ export function ProgressCard() {
 
   return (
     <div className="h-[250px] relative overflow-hidden rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 p-6 shadow-lg dark:from-emerald-900/20 dark:to-emerald-800/20">
-      <div className="relative z-10 flex items-center gap-3 text-lg font-medium text-emerald-900 dark:text-emerald-100">
+      <div className="absolute bottom-0 left-0 p-5 z-10 flex items-center gap-3 text-lg font-medium text-emerald-900 dark:text-emerald-100">
         <div className="relative h-6 w-6 ">
           <svg className="h-6 w-6" viewBox="0 0 24 24">
             <circle
@@ -41,16 +41,11 @@ export function ProgressCard() {
             />
           </svg>
         </div>
-        <div>
+        <div className="text-black text-sm font-mono ">
           {yearProgress}% of {new Date().getFullYear()} is done
         </div>
       </div>
-      <div
-        className="absolute inset-0 bg-gradient-to-r from-emerald-200/20 to-transparent "
-        style={{
-          clipPath: `polygon(0 0, ${yearProgress}% 0, ${yearProgress}% 100%, 0 100%)`,
-        }}
-      />
+      <div className="absolute inset-0 will-change-auto japan-image bg-cover bg-center bg-gradient-to-tr from-transparen</div>t to-black" />
     </div>
   );
 }

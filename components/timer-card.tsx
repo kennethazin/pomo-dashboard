@@ -71,7 +71,7 @@ export function TimerCard() {
             value={task}
             onChange={(e) => setTask(e.target.value)}
             placeholder="Add a task"
-            className="border-none bg-transparent p-0 text-sm outline-none"
+            className="border-none bg-transparent  p-0 text-sm outline-none  font-mono"
           />
           <Button
             variant="ghost"
@@ -88,8 +88,8 @@ export function TimerCard() {
           <span className="text-sm font-normal text-zinc-400"> Focus</span>
         </div>
 
-        <div className="flex items-center justify-between">
-          <span className="text-sm text-zinc-600 dark:text-zinc-400">
+        <div className="flex items-center justify-between ">
+          <span className="text-sm text-zinc-600 dark:text-zinc-400 font-mono">
             Just do it
           </span>
           <div className="flex gap-2 h-fit">

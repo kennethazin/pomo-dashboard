@@ -4,6 +4,8 @@ import { motion } from "motion/react";
 import { WeatherCard } from "@/components/weather-card";
 import { TimerCard } from "@/components/timer-card";
 import { ProgressCard } from "@/components/progress-card";
+import { Magnetic } from "@/components/magnetic";
+import { Magnet } from "lucide-react";
 
 export default function Home() {
   const [focusedCard, setFocusedCard] = useState<string | null>(null);
@@ -29,7 +31,9 @@ export default function Home() {
           }}
           transition={{ duration: 0.2 }}
         >
-          <WeatherCard />
+          <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
+            <WeatherCard />
+          </Magnetic>
         </motion.div>
         <motion.div
           onMouseEnter={() => handleMouseEnter("timer")}
@@ -41,7 +45,9 @@ export default function Home() {
           }}
           transition={{ duration: 0.2 }}
         >
-          <TimerCard />
+          <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
+            <TimerCard />
+          </Magnetic>
         </motion.div>
         <motion.div
           onMouseEnter={() => handleMouseEnter("progress")}
@@ -53,11 +59,35 @@ export default function Home() {
           }}
           transition={{ duration: 0.2 }}
         >
-          <ProgressCard />
+          <Magnetic springOptions={{ bounce: 0 }} intensity={0.3}>
+            <ProgressCard />
+          </Magnetic>
         </motion.div>
       </div>
-      <div className="text-foreground fixed bottom-0 left-1/2 transform -translate-x-1/2 mb-2 font-mono text-sm tracking-tighter text-accent-foreground dark:text-accent-background">
-        @2025 by Kenneth
+      <div className="absolute bottom-4 left-4 flex items-center gap-2">
+        <a
+          href="https://github.com/kennethazin/pomo-dashboard"
+          target="_blank"
+          className="font-mono group relative inline-flex shrink-0 items-center gap-[1px] rounded-full bg-zinc-100 px-2.5 py-1 text-sm text-black transition-colors duration-200 hover:bg-zinc-950 hover:text-zinc-50 dark:bg-zinc-800 dark:text-zinc-100 dark:hover:bg-zinc-700"
+        >
+          <div className="mr-2 text-sm">Github</div>
+
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 15 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-3 w-3"
+          >
+            <path
+              d="M3.64645 11.3536C3.45118 11.1583 3.45118 10.8417 3.64645 10.6465L10.2929 4L6 4C5.72386 4 5.5 3.77614 5.5 3.5C5.5 3.22386 5.72386 3 6 3L11.5 3C11.6326 3 11.7598 3.05268 11.8536 3.14645C11.9473 3.24022 12 3.36739 12 3.5L12 9.00001C12 9.27615 11.7761 9.50001 11.5 9.50001C11.2239 9.50001 11 9.27615 11 9.00001V4.70711L4.35355 11.3536C4.15829 11.5488 3.84171 11.5488 3.64645 11.3536Z"
+              fill="currentColor"
+              fillRule="evenodd"
+              clipRule="evenodd"
+            ></path>
+          </svg>
+        </a>
       </div>
     </main>
   );
