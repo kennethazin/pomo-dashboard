@@ -18,7 +18,7 @@ export default function Home() {
   };
 
   return (
-    <main className="h-[calc(100vh-30px)] bg-zinc-50 p-4 dark:bg-zinc-950 sm:p-8 flex items-center ">
+    <main className="min-h-screen bg-zinc-50 p-4 dark:bg-zinc-950 sm:p-8 flex items-center ">
       <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <motion.div
           onMouseEnter={() => handleMouseEnter("weather")}
